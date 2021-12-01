@@ -4,6 +4,7 @@ import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SectionTitle from "../../components/section-title/SectionTitle";
 import ProductGrid from "./ProductGrid";
+import products from "../../data/products.json"
 
 const TabProduct = ({
   spaceTopClass,
@@ -18,7 +19,7 @@ const TabProduct = ({
       } ${bgColorClass ? bgColorClass : ""}`}
     >
       <div className="container">
-        <SectionTitle titleText="DAILY DEALS!" positionClass="text-center" />
+        <SectionTitle titleText="The Most Eyes Catching Dresses" positionClass="text-center" />
         <Tab.Container defaultActiveKey="bestSeller">
           <Nav
             variant="pills"
@@ -36,7 +37,7 @@ const TabProduct = ({
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="saleItems">
-                <h4>Sale Items</h4>
+                <h4>On Sale</h4>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -44,9 +45,10 @@ const TabProduct = ({
             <Tab.Pane eventKey="newArrival">
               <div className="row">
                 <ProductGrid
+                  products = {products}
                   category={category}
                   type="new"
-                  limit={8}
+                  limit={4}
                   spaceBottomClass="mb-25"
                 />
               </div>
@@ -54,9 +56,10 @@ const TabProduct = ({
             <Tab.Pane eventKey="bestSeller">
               <div className="row">
                 <ProductGrid
+                products = {products}
                   category={category}
                   type="bestSeller"
-                  limit={8}
+                  limit={4}
                   spaceBottomClass="mb-25"
                 />
               </div>
@@ -64,9 +67,10 @@ const TabProduct = ({
             <Tab.Pane eventKey="saleItems">
               <div className="row">
                 <ProductGrid
+                products = {products}
                   category={category}
                   type="saleItems"
-                  limit={8}
+                  limit={4}
                   spaceBottomClass="mb-25"
                 />
               </div>

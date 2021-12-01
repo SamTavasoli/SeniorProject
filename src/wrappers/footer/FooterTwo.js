@@ -55,21 +55,11 @@ const FooterTwo = ({
         }`}
       >
         <div className="container">
-          <div className="footer-logo">
-            <Link to={process.env.PUBLIC_URL}>
-              <img
-                alt=""
-                src={
-                  process.env.PUBLIC_URL +
-                  `${footerLogo ? footerLogo : "/assets/img/logo/logo.png"}`
-                }
-              />
-            </Link>
-          </div>
+         
+         <br/>
+         <h1>Sherry Fairy Sewing</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim
+            Sherry Fairy Sewing is a Heart Warming Clothing Comopany established in 2021. We aimed to serve the people who needs help adapting into the American Culture.
           </p>
           <div className="footer-social">
             <ul>
@@ -110,13 +100,13 @@ const FooterTwo = ({
             }`}
           >
             <p>
-              © 2020{" "}
+              © 2021{" "}
               <a
-                href="//www.hasthemes.com"
+                href=""
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Flone
+                Sherry Fairy Sewing
               </a>
               . All Rights Reserved.
             </p>

@@ -17,7 +17,7 @@
   p {
     letter-spacing: 0.9px;
 
-    color: #313131;
+    color: #363131;
     a {
       color: #313131;
       &:hover {
@@ -320,7 +320,7 @@
     width: 55%;
     margin: 31px auto 33px;
 
-    color: #fffefe;
+    color: #333;
     @media #{$md-layout} {
       width: 85%;
     }
@@ -393,9 +393,9 @@
   p {
     line-height: 1;
 
-    color: #fff;
+    color: #333;
     a {
-      color: #fff;
+      color: #333;
       &:hover {
         color: $theme-color;
       }
