@@ -28,7 +28,7 @@ const HeaderTop = ({
         <p>
           Free delivery on order over{" "}
           <span>
-            {currency.currencySymbol + (200 * currency.currencyRate).toFixed(2)}
+            {currency.currencySymbol + (100 * currency.currencyRate).toFixed(0)}
           </span>
         </p>
       </div>

@@ -18,7 +18,6 @@ const ShopListStandard = lazy(() => import("./pages/shop/ShopListStandard"));
 // product pages
 const Product = lazy(() => import("./pages/shop-product/Product"));
 
-
 // other pages
 const About = lazy(() => import("./pages/other/About"));
 const MyAccount = lazy(() => import("./pages/other/MyAccount"));
@@ -26,6 +25,8 @@ const LoginRegister = lazy(() => import("./pages/other/LoginRegister"));
 
 const Cart = lazy(() => import("./pages/other/Cart"));
 const Checkout = lazy(() => import("./pages/other/Checkout"));
+const Wishlist = lazy(() => import("./pages/other/Wishlist"));
+const Compare = lazy(() => import("./pages/other/Compare"));
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
 
@@ -69,18 +70,18 @@ const App = (props) => {
                   path={process.env.PUBLIC_URL + "/home-fashion"}
                   component={HomeFashion}
                 />
-                
+
                 {/* Shop pages */}
                 <Route
                   path={process.env.PUBLIC_URL + "/shop-grid-standard"}
                   component={ShopGridStandard}
                 />
-              
+
                 <Route
                   path={process.env.PUBLIC_URL + "/shop-list-standard"}
                   component={ShopListStandard}
                 />
-               
+
 
                 {/* Shop product pages */}
                 <Route
@@ -89,16 +90,26 @@ const App = (props) => {
                     <Product {...routeProps} key={routeProps.match.params.id} />
                   )}
                 />
-                
 
-               
+
+
 
                 {/* Other pages */}
                 <Route
                   path={process.env.PUBLIC_URL + "/about"}
                   component={About}
                 />
-                
+
+                <Route
+                  path={process.env.PUBLIC_URL + "/wishlist"}
+                  component={Wishlist}
+                />
+
+                <Route
+                  path={process.env.PUBLIC_URL + "/compare"}
+                  component={Compare}
+                />
+
                 <Route
                   path={process.env.PUBLIC_URL + "/my-account"}
                   component={MyAccount}

@@ -24,7 +24,7 @@ const HomeFashion = () => {
         <br/>
 
         {/* tab product */}
-        <TabProduct spaceBottomClass="pb-60" category="fashion" />
+        <TabProduct spaceBottomClass="pb-60" category="fashion"/>
 
       </LayoutOne>
     </Fragment>

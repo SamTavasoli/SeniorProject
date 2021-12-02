@@ -24,19 +24,8 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
               {strings["products"]}
             </Link>
           </li>
-
           <li>
-            <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-              {strings["our_tailors"]}
-            </Link>
-          </li>
-          <li>
-            <Link to={process.env.PUBLIC_URL + "/shop-grid-standard"}>
-              {strings["customized"]}
-            </Link>
-          </li>
-          <li>
-            <Link to={process.env.PUBLIC_URL + "/contact"}>
+            <Link to={process.env.PUBLIC_URL + "/about"}>
               {strings["about_us"]}
             </Link>
           </li>
