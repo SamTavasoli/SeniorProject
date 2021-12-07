@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import MetaTags from "react-meta-tags";
 import { Link } from "react-router-dom";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
@@ -7,17 +7,72 @@ import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+import { Redirect } from "react-router-dom";
 
 const LoginRegister = ({ location }) => {
   const { pathname } = location;
 
+  const [inputs, setInputs] = useState({});
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({ ...values, [name]: value }))
+  }
+
+  const handleRegisterSubmit = (event) => {
+    event.preventDefault();
+    const input = JSON.stringify(inputs)
+    alert(input)
+    fetch('http://localhost:8080/signup', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: input
+    }).then(function(res){ 
+      console.log(res);
+      if (res.status === 200){
+        alert("Successfully Sign Up");
+        window.location.reload(false);
+      }
+      else{
+        alert("Email has been taken / Password invalid");
+      }
+    })
+    .catch(function(res){ console.log(res) })
+  }
+
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
+    const input = JSON.stringify(inputs)
+    alert(input)
+    fetch('http://localhost:8080/login', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: input
+    }).then(function(res){ 
+      console.log(res);
+      if (res.status === 200){
+        alert("Successfully Sign Up");
+        return <Redirect to ="/"/>
+      }
+      else{
+        alert("Email/Password invalid");
+      }
+    })
+    .catch(function(res){ console.log(res) })
+  }
+
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Login</title>
+        <title>SherryFairy Sewing | Login</title>
         <meta
           name="description"
-          content="Compare page of flone react minimalist eCommerce template."
+          content="Compare page of Sherry Fairy Sewing"
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -49,16 +104,18 @@ const LoginRegister = ({ location }) => {
                       <Tab.Pane eventKey="login">
                         <div className="login-form-container">
                           <div className="login-register-form">
-                            <form>
+                            <form onSubmit={handleLoginSubmit}>
                               <input
                                 type="text"
-                                name="user-name"
-                                placeholder="Username"
+                                name="email"
+                                placeholder="Email"
+                                onChange={handleChange}
                               />
                               <input
                                 type="password"
-                                name="user-password"
+                                name="password"
                                 placeholder="Password"
+                                onChange={handleChange}
                               />
                               <div className="button-box">
                                 <div className="login-toggle-btn">
@@ -79,22 +136,26 @@ const LoginRegister = ({ location }) => {
                       <Tab.Pane eventKey="register">
                         <div className="login-form-container">
                           <div className="login-register-form">
-                            <form>
+                            <form onSubmit={handleRegisterSubmit}>
                               <input
-                                type="text"
-                                name="user-name"
-                                placeholder="Username"
+                                name="email"
+                                placeholder="Email"
+                                type="email"
+                                onChange={handleChange}
                               />
                               <input
                                 type="password"
-                                name="user-password"
+                                name="password"
                                 placeholder="Password"
+                                onChange={handleChange}
                               />
                               <input
-                                name="user-email"
-                                placeholder="Email"
-                                type="email"
+                                type="password"
+                                name="confirmPassword"
+                                placeholder="Confirm Password"
+                                onChange={handleChange}
                               />
+
                               <div className="button-box">
                                 <button type="submit">
                                   <span>Register</span>

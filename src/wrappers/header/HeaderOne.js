@@ -29,6 +29,7 @@ const HeaderOne = ({
     {
       display: 'flex',
       alignItems: 'center',
+      paddingLeft: '30px',
       justifyContent: 'center',
       fontSize: '2.3rem',
   }
